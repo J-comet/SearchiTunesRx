@@ -24,12 +24,27 @@ final class SearchMainVC: UIViewController {
         navigationItem.titleView = mainView.searchBar
         bind()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        mainView.searchBar.resignFirstResponder()
+    }
 
     private func bind() {
         
         viewModel.items
             .bind(to: mainView.tableView.rx.items(cellIdentifier: SearchiTuneCell.identifier, cellType: SearchiTuneCell.self)) { (row, element, cell) in
                 cell.configCell(row: element)
+                
+                cell.topContainerViewTapGesture
+                    .rx
+                    .event
+                    .bind(with: self, onNext: { owner, gesture in
+                        let vc = SearchDetailVC()
+                        vc.detailAppInfo = element
+                        owner.navigationController?.pushViewController(vc, animated: true)
+                    })
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: viewModel.disposeBag)
         
@@ -47,6 +62,14 @@ final class SearchMainVC: UIViewController {
                         owner.viewModel.items.accept(value.results)
                     }
                     .disposed(by: owner.viewModel.disposeBag)
+            }
+            .disposed(by: viewModel.disposeBag)
+        
+        // 스크롤시 소프트키보드 hide
+        mainView.tableView.rx
+            .contentOffset
+            .subscribe(with: self) { owner, _ in
+                owner.mainView.searchBar.resignFirstResponder()
             }
             .disposed(by: viewModel.disposeBag)
     }

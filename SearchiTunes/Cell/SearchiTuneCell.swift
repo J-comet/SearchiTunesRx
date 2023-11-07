@@ -16,7 +16,13 @@ final class SearchiTuneCell: UITableViewCell {
     
     static let identifier = "SearchiTuneCell"
     
-    let topContainerView = UIView()
+    let topContainerViewTapGesture = UITapGestureRecognizer()
+    lazy var topContainerView = {
+        let view = UIView()
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(topContainerViewTapGesture)
+        return view
+    }()
     
     let nameLabel = {
         let view = UILabel()
@@ -62,6 +68,8 @@ final class SearchiTuneCell: UITableViewCell {
     
     var screenshotImages: [String] = []
     
+    var disposeBag = DisposeBag()
+    
     lazy var screenshotCollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionViewLayout())
         view.showsHorizontalScrollIndicator = false
@@ -70,8 +78,6 @@ final class SearchiTuneCell: UITableViewCell {
         view.delegate = self
         return view
     }()
-    
-    var disposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
