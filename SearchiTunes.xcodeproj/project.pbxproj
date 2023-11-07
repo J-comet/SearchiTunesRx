@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00206B62AFA76310063A291 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00206B52AFA76310063A291 /* TabBarVC.swift */; };
+		C00206BA2AFA77CF0063A291 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00206B92AFA77CF0063A291 /* HomeVC.swift */; };
+		C00206BC2AFA78010063A291 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00206BB2AFA78010063A291 /* HomeView.swift */; };
+		C00206BF2AFA78540063A291 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00206BE2AFA78540063A291 /* HomeViewModel.swift */; };
 		C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79972AF90A3300E5AD8D /* AppDelegate.swift */; };
 		C04E799A2AF90A3300E5AD8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79992AF90A3300E5AD8D /* SceneDelegate.swift */; };
 		C04E799C2AF90A3300E5AD8D /* SearchMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E799B2AF90A3300E5AD8D /* SearchMainVC.swift */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C00206B52AFA76310063A291 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		C00206B92AFA77CF0063A291 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		C00206BB2AFA78010063A291 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C00206BE2AFA78540063A291 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C04E79942AF90A3300E5AD8D /* SearchiTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchiTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C04E79972AF90A3300E5AD8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C04E79992AF90A3300E5AD8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +77,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C00206B72AFA771A0063A291 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC98302AFA40BB00325430 /* SearchMain */,
+				C0CC98312AFA40C500325430 /* SearchDetail */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C00206B82AFA77260063A291 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C00206B92AFA77CF0063A291 /* HomeVC.swift */,
+				C00206BB2AFA78010063A291 /* HomeView.swift */,
+				C00206BE2AFA78540063A291 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		C04E798B2AF90A3300E5AD8D = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +132,9 @@
 		C04E79B92AF90B7800E5AD8D /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				C0CC98312AFA40C500325430 /* SearchDetail */,
-				C0CC98302AFA40BB00325430 /* SearchMain */,
+				C00206B82AFA77260063A291 /* Home */,
+				C00206B72AFA771A0063A291 /* Search */,
+				C00206B52AFA76310063A291 /* TabBarVC.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -259,13 +287,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04E799C2AF90A3300E5AD8D /* SearchMainVC.swift in Sources */,
+				C00206BF2AFA78540063A291 /* HomeViewModel.swift in Sources */,
 				C04E79BB2AF90B8400E5AD8D /* SearchMainView.swift in Sources */,
 				C04E79C72AF90CA900E5AD8D /* ResponseSearchiTunes.swift in Sources */,
 				C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */,
 				C04E79BE2AF90C4D00E5AD8D /* APIManager.swift in Sources */,
+				C00206BC2AFA78010063A291 /* HomeView.swift in Sources */,
 				C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */,
 				C0EAAEA32AFA29860028031F /* ScreenshotCell.swift in Sources */,
+				C00206B62AFA76310063A291 /* TabBarVC.swift in Sources */,
 				C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */,
+				C00206BA2AFA77CF0063A291 /* HomeVC.swift in Sources */,
 				C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */,
 				C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */,
 				C0CC98332AFA40D100325430 /* SearchDetailVC.swift in Sources */,
