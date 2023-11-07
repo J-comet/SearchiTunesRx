@@ -24,5 +24,7 @@ final class SearchDetailVC: UIViewController {
         super.viewDidLoad()
         
         print(detailAppInfo)
+        guard let detailAppInfo else { return }
+        mainView.fetchData(item: detailAppInfo)
     }
 }

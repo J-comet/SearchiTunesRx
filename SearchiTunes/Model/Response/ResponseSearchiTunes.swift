@@ -32,6 +32,15 @@ struct AppInfo: Codable {
     var ratingValue: String {
         return "별점: \(round(averageUserRating*100)/100)"
     }
+    
+    var priceValue: String {
+        if formattedPrice == "무료" {
+            return formattedPrice
+        } else {
+            return "\(formattedPrice) - \(price)원"
+        }
+        
+    }
 }
 
 
