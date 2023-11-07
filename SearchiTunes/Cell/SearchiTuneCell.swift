@@ -33,7 +33,7 @@ final class SearchiTuneCell: UITableViewCell {
         return view
     }()
     
-    let shadowView = {
+    private let shadowView = {
         let view = UIImageView()
         view.layer.cornerRadius = 16
         view.layer.borderWidth = 0.5
@@ -43,6 +43,20 @@ final class SearchiTuneCell: UITableViewCell {
         view.layer.shadowOffset = .zero // 그림자 방향. .zero
         view.layer.shadowRadius = 4 // 그림자 퍼짐의 정도
         view.layer.masksToBounds = false
+        return view
+    }()
+    
+    private let averageUserRatingLabel = {
+        let view = UILabel()
+        view.font = .monospacedSystemFont(ofSize: 14, weight: .semibold)
+        view.textColor = .lightGray
+        return view
+    }()
+    
+    private let genreLabel = {
+        let view = UILabel()
+        view.font = .monospacedSystemFont(ofSize: 14, weight: .medium)
+        view.textColor = .gray
         return view
     }()
     
@@ -80,7 +94,10 @@ final class SearchiTuneCell: UITableViewCell {
     
     func configCell(row: AppInfo) {
         nameLabel.text = row.trackName
+        averageUserRatingLabel.text = row.ratingValue
         screenshotImages.append(contentsOf: row.screenshotUrls)
+        genreLabel.text = row.genres.first
+        
         screenshotCollectionView.reloadData()
         if let url = URL(string: row.artworkUrl512) {
             appIconImageView.kf.setImage(with: url)
@@ -93,6 +110,8 @@ final class SearchiTuneCell: UITableViewCell {
         topContainerView.addSubview(shadowView)
         topContainerView.addSubview(appIconImageView)
         topContainerView.addSubview(nameLabel)
+        topContainerView.addSubview(averageUserRatingLabel)
+        topContainerView.addSubview(genreLabel)
     }
     
     private func setLayout() {
@@ -100,7 +119,7 @@ final class SearchiTuneCell: UITableViewCell {
         topContainerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.horizontalEdges.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.18)
+            make.height.equalToSuperview().multipliedBy(0.25)
         }
         
         appIconImageView.snp.makeConstraints { make in
@@ -116,6 +135,16 @@ final class SearchiTuneCell: UITableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalTo(shadowView)
             make.leading.equalTo(shadowView.snp.trailing).offset(16)
+            make.trailing.equalToSuperview().inset(16)
+        }
+        
+        averageUserRatingLabel.snp.makeConstraints { make in
+            make.top.equalTo(shadowView.snp.bottom).offset(8)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        genreLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(averageUserRatingLabel)
             make.trailing.equalToSuperview().inset(16)
         }
         

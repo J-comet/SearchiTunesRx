@@ -28,6 +28,10 @@ struct AppInfo: Codable {
     let trackId: Int
     let version: String
     let releaseNotes: String
+    
+    var ratingValue: String {
+        return "별점: \(round(averageUserRating*100)/100)"
+    }
 }
 
 
