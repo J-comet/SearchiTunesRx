@@ -13,6 +13,7 @@ import RxCocoa
 final class SearchDetailVC: UIViewController {
     
     private let mainView = SearchDetailView()
+    private let viewModel = SearchDetailViewModel()
     
     var detailAppInfo: AppInfo?
     
@@ -23,8 +24,23 @@ final class SearchDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(detailAppInfo)
+        bind()
         guard let detailAppInfo else { return }
-        mainView.fetchData(item: detailAppInfo)
+        viewModel.screenshotImages.accept(detailAppInfo.screenshotUrls)
+        viewModel.detailAppInfo.accept(detailAppInfo)
+    }
+    
+    private func bind() {
+        viewModel.detailAppInfo
+            .bind(with: self) { owner, appInfo in
+                owner.mainView.fetchData(item: appInfo)
+            }
+            .disposed(by: viewModel.disposeBag)
+        
+        viewModel.screenshotImages
+            .bind(to: mainView.screenshotCollectionView.rx.items(cellIdentifier: ScreenshotCell.identifier, cellType: ScreenshotCell.self)) { (row, element, cell) in
+                cell.configCell(url: element)
+            }
+            .disposed(by: viewModel.disposeBag)
     }
 }

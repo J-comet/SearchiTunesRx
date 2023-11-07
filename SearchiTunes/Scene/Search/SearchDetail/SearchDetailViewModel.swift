@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+import RxSwift
+import RxCocoa
+
+final class SearchDetailViewModel {
+    var detailAppInfo = PublishRelay<AppInfo>()
+    var screenshotImages = PublishRelay<[String]>()
+    let disposeBag = DisposeBag()
+}

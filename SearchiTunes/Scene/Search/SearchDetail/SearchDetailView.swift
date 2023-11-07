@@ -14,6 +14,11 @@ import RxCocoa
 
 final class SearchDetailView: UIView {
     
+    let count = 1.2
+    let collectionViewSpacing: CGFloat = 8
+    lazy var width: CGFloat = UIScreen.main.bounds.width - (collectionViewSpacing * (count + 1))
+    lazy var collectionViewHeight = (width / count) * 1.6
+    
     private lazy var scrollView = {
         let view = UIScrollView()
         view.showsVerticalScrollIndicator = false
@@ -27,6 +32,8 @@ final class SearchDetailView: UIView {
     }()
     
     private let topContentView = UIView()
+    
+    private let bottomContentView = UIView()
     
     private let iconImageView = {
         let view = UIImageView()
@@ -85,6 +92,46 @@ final class SearchDetailView: UIView {
         return view
     }()
     
+    private let guideReleaseNoteLabel = {
+        let view = UILabel()
+        view.font = .boldSystemFont(ofSize: 18)
+        view.textColor = .black
+        view.text = "새로운 소식"
+        return view
+    }()
+    
+    private let versionLabel = {
+        let view = UILabel()
+        view.font = .monospacedSystemFont(ofSize: 14, weight: .medium)
+        view.textColor = .gray
+        return view
+    }()
+    
+    private let releaseLabel = {
+        let view = UILabel()
+        view.font = .monospacedSystemFont(ofSize: 13, weight: .regular)
+        view.textColor = .gray
+        view.numberOfLines = 0
+        view.lineBreakMode = .byCharWrapping
+        return view
+    }()
+    
+    lazy var screenshotCollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionViewLayout())
+        view.showsHorizontalScrollIndicator = false
+        view.register(ScreenshotCell.self, forCellWithReuseIdentifier: ScreenshotCell.identifier)
+        return view
+    }()
+    
+    private let descriptionLabel = {
+        let view = UILabel()
+        view.font = .monospacedSystemFont(ofSize: 14, weight: .medium)
+        view.textColor = .gray
+        view.numberOfLines = 0
+        view.lineBreakMode = .byCharWrapping
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -102,6 +149,9 @@ final class SearchDetailView: UIView {
         ageLabel.text = item.trackContentRating
         averageUserRatingLabel.text = item.ratingValue
         priceLabel.text = item.priceValue
+        versionLabel.text = item.versionValue
+        releaseLabel.text = item.releaseNotes
+        descriptionLabel.text = item.description
         
         if let url = URL(string: item.artworkUrl512) {
             iconImageView.kf.setImage(with: url)
@@ -112,6 +162,7 @@ final class SearchDetailView: UIView {
         addSubview(scrollView)
         scrollView.addSubview(containerView)
         containerView.addSubview(topContentView)
+        containerView.addSubview(bottomContentView)
         
         topContentView.addSubview(shadowView)
         topContentView.addSubview(iconImageView)
@@ -120,6 +171,12 @@ final class SearchDetailView: UIView {
         topContentView.addSubview(ageLabel)
         topContentView.addSubview(averageUserRatingLabel)
         topContentView.addSubview(priceLabel)
+        
+        bottomContentView.addSubview(guideReleaseNoteLabel)
+        bottomContentView.addSubview(versionLabel)
+        bottomContentView.addSubview(releaseLabel)
+        bottomContentView.addSubview(screenshotCollectionView)
+        bottomContentView.addSubview(descriptionLabel)
     }
     
     private func setLayout() {
@@ -128,15 +185,23 @@ final class SearchDetailView: UIView {
         }
         
         containerView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
             make.width.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.centerX.top.bottom.equalToSuperview()
+//            make.top.equalToSuperview()
+//            make.width.equalToSuperview()
+//            make.bottom.equalToSuperview()
         }
  
         topContentView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(16)
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(100)
+        }
+        
+        bottomContentView.snp.makeConstraints { make in
+            make.top.equalTo(topContentView.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview()
         }
         
         iconImageView.snp.makeConstraints { make in
@@ -152,6 +217,7 @@ final class SearchDetailView: UIView {
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(6)
             make.leading.equalTo(shadowView.snp.trailing).offset(16)
+            make.trailing.equalToSuperview().inset(16)
         }
         
         genreLabel.snp.makeConstraints { make in
@@ -173,5 +239,46 @@ final class SearchDetailView: UIView {
             make.top.equalTo(averageUserRatingLabel.snp.bottom).offset(8)
             make.leading.equalTo(averageUserRatingLabel)
         }
+        
+        guideReleaseNoteLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+        }
+        
+        versionLabel.snp.makeConstraints { make in
+            make.top.equalTo(guideReleaseNoteLabel.snp.bottom).offset(6)
+            make.leading.equalTo(guideReleaseNoteLabel)
+        }
+        
+        releaseLabel.snp.makeConstraints { make in
+            make.top.equalTo(versionLabel.snp.bottom).offset(6)
+            make.horizontalEdges.equalToSuperview()
+        }
+        
+        screenshotCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(releaseLabel.snp.bottom).offset(16)
+            make.height.equalTo(collectionViewHeight)
+            make.horizontalEdges.equalToSuperview()
+        }
+        
+        descriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(screenshotCollectionView.snp.bottom).offset(16)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
+}
+
+extension SearchDetailView {
+    
+    func collectionViewLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: width / count, height: collectionViewHeight)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        layout.minimumLineSpacing = 8
+        layout.minimumInteritemSpacing = 0
+        return layout
+    }
+    
 }
