@@ -11,6 +11,8 @@ import SnapKit
 
 final class SearchMainView: UIView {
     
+    let searchBar = UISearchBar()
+    
     let tableView: UITableView = {
         let view = UITableView()
         view.register(SearchiTuneCell.self, forCellReuseIdentifier: SearchiTuneCell.identifier)

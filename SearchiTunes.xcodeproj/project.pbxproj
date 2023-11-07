@@ -22,6 +22,9 @@
 		C04E79C72AF90CA900E5AD8D /* ResponseSearchiTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79C62AF90CA900E5AD8D /* ResponseSearchiTunes.swift */; };
 		C04E79C92AF90CB700E5AD8D /* Extension+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */; };
 		C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */; };
+		C0EAAE9C2AFA19B20028031F /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C0EAAE9B2AFA19B20028031F /* Toast */; };
+		C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */; };
+		C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,8 @@
 		C04E79C62AF90CA900E5AD8D /* ResponseSearchiTunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSearchiTunes.swift; sourceTree = "<group>"; };
 		C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Encodable.swift"; sourceTree = "<group>"; };
 		C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchiTuneCell.swift; sourceTree = "<group>"; };
+		C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0EAAE9C2AFA19B20028031F /* Toast in Frameworks */,
 				C04E79B22AF90AB100E5AD8D /* RxSwift in Frameworks */,
 				C04E79B52AF90AC300E5AD8D /* SnapKit in Frameworks */,
 				C04E79B02AF90AB100E5AD8D /* RxCocoa in Frameworks */,
@@ -74,6 +80,7 @@
 		C04E79962AF90A3300E5AD8D /* SearchiTunes */ = {
 			isa = PBXGroup;
 			children = (
+				C0EAAE9D2AFA19BA0028031F /* Extension */,
 				C04E79CA2AF913F600E5AD8D /* Cell */,
 				C04E79C12AF90C7500E5AD8D /* Model */,
 				C04E79BC2AF90C3D00E5AD8D /* Network */,
@@ -83,7 +90,6 @@
 				C04E79A02AF90A3400E5AD8D /* Assets.xcassets */,
 				C04E79A22AF90A3400E5AD8D /* LaunchScreen.storyboard */,
 				C04E79A52AF90A3400E5AD8D /* Info.plist */,
-				C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */,
 			);
 			path = SearchiTunes;
 			sourceTree = "<group>";
@@ -93,6 +99,7 @@
 			children = (
 				C04E799B2AF90A3300E5AD8D /* SearchMainVC.swift */,
 				C04E79BA2AF90B8400E5AD8D /* SearchMainView.swift */,
+				C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -129,6 +136,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		C0EAAE9D2AFA19BA0028031F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */,
+				C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +167,7 @@
 				C04E79B12AF90AB100E5AD8D /* RxSwift */,
 				C04E79B42AF90AC300E5AD8D /* SnapKit */,
 				C04E79B72AF90AD400E5AD8D /* Kingfisher */,
+				C0EAAE9B2AFA19B20028031F /* Toast */,
 			);
 			productName = SearchiTunes;
 			productReference = C04E79942AF90A3300E5AD8D /* SearchiTunes.app */;
@@ -185,6 +202,7 @@
 				C04E79AE2AF90AB100E5AD8D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C04E79B32AF90AC300E5AD8D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C04E79B62AF90AD400E5AD8D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C0EAAE9A2AFA19B20028031F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = C04E79952AF90A3300E5AD8D /* Products */;
 			projectDirPath = "";
@@ -217,6 +235,8 @@
 				C04E79C72AF90CA900E5AD8D /* ResponseSearchiTunes.swift in Sources */,
 				C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */,
 				C04E79BE2AF90C4D00E5AD8D /* APIManager.swift in Sources */,
+				C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */,
+				C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */,
 				C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */,
 				C04E799A2AF90A3300E5AD8D /* SceneDelegate.swift in Sources */,
 				C04E79C92AF90CB700E5AD8D /* Extension+Encodable.swift in Sources */,
@@ -472,6 +492,14 @@
 				minimumVersion = 7.10.0;
 			};
 		};
+		C0EAAE9A2AFA19B20028031F /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -499,6 +527,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C04E79B62AF90AD400E5AD8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C0EAAE9B2AFA19B20028031F /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0EAAE9A2AFA19B20028031F /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
