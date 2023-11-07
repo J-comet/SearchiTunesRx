@@ -17,7 +17,8 @@ final class SearchMainView: UIView {
         let view = UITableView()
         view.register(SearchiTuneCell.self, forCellReuseIdentifier: SearchiTuneCell.identifier)
         view.backgroundColor = .white
-        view.rowHeight = 100
+//        view.rowHeight = 340
+        view.rowHeight = UIScreen.main.bounds.height * 0.45
         view.separatorStyle = .none
         return view
     }()

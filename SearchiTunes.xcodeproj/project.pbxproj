@@ -25,6 +25,7 @@
 		C0EAAE9C2AFA19B20028031F /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C0EAAE9B2AFA19B20028031F /* Toast */; };
 		C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */; };
 		C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */; };
+		C0EAAEA32AFA29860028031F /* ScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAEA22AFA29860028031F /* ScreenshotCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchiTuneCell.swift; sourceTree = "<group>"; };
 		C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewModel.swift; sourceTree = "<group>"; };
+		C0EAAEA22AFA29860028031F /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */,
+				C0EAAEA22AFA29860028031F /* ScreenshotCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */,
 				C04E79BE2AF90C4D00E5AD8D /* APIManager.swift in Sources */,
 				C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */,
+				C0EAAEA32AFA29860028031F /* ScreenshotCell.swift in Sources */,
 				C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */,
 				C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */,
 				C04E799A2AF90A3300E5AD8D /* SceneDelegate.swift in Sources */,

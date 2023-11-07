@@ -11,9 +11,6 @@ import RxSwift
 import RxCocoa
 
 final class SearchMainViewModel {
-    
     let items = PublishRelay<[AppInfo]>()
-    
     let disposeBag = DisposeBag()
-    
 }

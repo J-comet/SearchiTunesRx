@@ -10,10 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SearchMainVC: UIViewController {
+final class SearchMainVC: UIViewController {
 
     private let mainView = SearchMainView()
-    
     private let viewModel = SearchMainViewModel()
     
     override func loadView() {
