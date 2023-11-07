@@ -66,7 +66,7 @@ final class SearchiTuneCell: UITableViewCell {
         return view
     }()
     
-    var screenshotImages: [String] = []
+    var screenshotImages = PublishRelay<[String]>()
     
     var disposeBag = DisposeBag()
     
@@ -74,8 +74,6 @@ final class SearchiTuneCell: UITableViewCell {
         let view = UICollectionView(frame: .zero, collectionViewLayout: self.collectionViewLayout())
         view.showsHorizontalScrollIndicator = false
         view.register(ScreenshotCell.self, forCellWithReuseIdentifier: ScreenshotCell.identifier)
-        view.dataSource = self
-        view.delegate = self
         return view
     }()
     
@@ -84,6 +82,7 @@ final class SearchiTuneCell: UITableViewCell {
         self.selectionStyle = .none
         configure()
         setLayout()
+        bindScreenShotsCollectionView()
     }
     
     required init?(coder: NSCoder) {
@@ -93,18 +92,26 @@ final class SearchiTuneCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         disposeBag = DisposeBag()
-        appIconImageView.image = nil
-        screenshotImages.removeAll()
-        screenshotCollectionView.reloadData()
+//        appIconImageView.image = nil
+        bindScreenShotsCollectionView()
+    }
+    
+    private func bindScreenShotsCollectionView() {
+        screenshotImages
+            .bind(to: screenshotCollectionView.rx.items(cellIdentifier: ScreenshotCell.identifier, cellType: ScreenshotCell.self)) { (row, element, cell) in
+                cell.configCell(url: element)
+            }
+            .disposed(by: disposeBag)
     }
     
     func configCell(row: AppInfo) {
         nameLabel.text = row.trackName
         averageUserRatingLabel.text = row.ratingValue
-        screenshotImages.append(contentsOf: row.screenshotUrls)
         genreLabel.text = row.genres.first
         
-        screenshotCollectionView.reloadData()
+        print("데이터 전달 \(row.screenshotUrls.count)")
+        screenshotImages.accept(row.screenshotUrls)
+        
         if let url = URL(string: row.artworkUrl512) {
             appIconImageView.kf.setImage(with: url)
         }
@@ -160,22 +167,6 @@ final class SearchiTuneCell: UITableViewCell {
             make.bottom.equalToSuperview()
         }
     }
-}
-
-extension SearchiTuneCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return screenshotImages.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ScreenshotCell.identifier, for: indexPath) as? ScreenshotCell else {
-            return UICollectionViewCell()
-        }
-        cell.configCell(url: screenshotImages[indexPath.item])
-        return cell
-    }
-    
 }
 
 extension SearchiTuneCell {

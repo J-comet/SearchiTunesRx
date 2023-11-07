@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 import Kingfisher
+import RxSwift
+import RxCocoa
 
 final class ScreenshotCell: UICollectionViewCell {
     
@@ -35,6 +37,8 @@ final class ScreenshotCell: UICollectionViewCell {
         return view
     }()
     
+    var disposeBag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -47,7 +51,8 @@ final class ScreenshotCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        thumbImageView.image = nil
+//        thumbImageView.image = nil
+        disposeBag = DisposeBag()
     }
     
     func configCell(url: String) {
