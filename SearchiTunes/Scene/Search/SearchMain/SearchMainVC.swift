@@ -54,9 +54,8 @@ final class SearchMainVC: UIViewController {
             .searchButtonClicked
             .throttle(.seconds(1), scheduler: MainScheduler.instance)
             .withLatestFrom(mainView.searchBar.rx.text.orEmpty)
-//            .distinctUntilChanged() // 연달아 중복되는 값 무시
+            .distinctUntilChanged() // 연달아 중복되는 값 무시
             .bind(with: self) { owner, text in
-//                print("검색 - ", text)
                 APIManager.fetchData(term: text, limit: "20")
                     .asDriver(onErrorJustReturn: SearchAppModel(resultCount: 0, results: []))
                     .drive(with: self) { owner, value in
