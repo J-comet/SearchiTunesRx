@@ -41,6 +41,7 @@ final class SearchMainVC: UIViewController {
                     .event
                     .bind(with: self, onNext: { owner, gesture in
                         let vc = SearchDetailVC()
+                        vc.hidesBottomBarWhenPushed = true
                         vc.detailAppInfo = element
                         owner.navigationController?.pushViewController(vc, animated: true)
                     })
@@ -56,7 +57,7 @@ final class SearchMainVC: UIViewController {
 //            .distinctUntilChanged() // 연달아 중복되는 값 무시
             .bind(with: self) { owner, text in
                 print("검색 - ", text)
-                APIManager.fetchData(term: text)
+                APIManager.fetchData(term: text, limit: "20")
                     .asDriver(onErrorJustReturn: SearchAppModel(resultCount: 0, results: []))
                     .drive(with: self) { owner, value in
                         owner.viewModel.items.accept(value.results)

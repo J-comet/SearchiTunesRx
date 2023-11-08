@@ -117,6 +117,11 @@ final class SearchiTuneCell: UITableViewCell {
         }
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0))
+    }
+    
     private func configure() {
         contentView.addSubview(topContainerView)
         contentView.addSubview(screenshotCollectionView)

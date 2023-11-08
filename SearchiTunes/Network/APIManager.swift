@@ -17,10 +17,10 @@ enum APIError: Error {
 
 final class APIManager {
     
-    static func fetchData(term: String) -> Observable<SearchAppModel> {
+    static func fetchData(term: String, limit: String) -> Observable<SearchAppModel> {
         
         return Observable<SearchAppModel>.create { value in
-            let urlString = "https://itunes.apple.com/search?term=\(term)&country=KR&media=software&lang=ko_KR&limit=10"
+            let urlString = "https://itunes.apple.com/search?term=\(term)&country=KR&media=software&lang=ko_KR&limit=\(limit)"
             guard let url = URL(string: urlString) else {
                 value.onError(APIError.invlidURL)
                 return Disposables.create()
