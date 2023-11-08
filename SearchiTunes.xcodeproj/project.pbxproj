@@ -26,6 +26,11 @@
 		C04E79C72AF90CA900E5AD8D /* ResponseSearchiTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79C62AF90CA900E5AD8D /* ResponseSearchiTunes.swift */; };
 		C04E79C92AF90CB700E5AD8D /* Extension+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */; };
 		C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */; };
+		C083733E2AFB4A5500B8A813 /* HomeAppInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083733D2AFB4A5400B8A813 /* HomeAppInfoCell.swift */; };
+		C08373402AFB4D8F00B8A813 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083733F2AFB4D8F00B8A813 /* HomeController.swift */; };
+		C08373422AFB4FAF00B8A813 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373412AFB4FAF00B8A813 /* TitleSupplementaryView.swift */; };
+		C08373452AFB53F800B8A813 /* HomeAppInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */; };
+		C08373482AFB551500B8A813 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373472AFB551500B8A813 /* HomeItem.swift */; };
 		C0CC98332AFA40D100325430 /* SearchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98322AFA40D100325430 /* SearchDetailVC.swift */; };
 		C0CC98352AFA40F500325430 /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98342AFA40F500325430 /* SearchDetailView.swift */; };
 		C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98362AFA40FD00325430 /* SearchDetailViewModel.swift */; };
@@ -52,6 +57,11 @@
 		C04E79C62AF90CA900E5AD8D /* ResponseSearchiTunes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSearchiTunes.swift; sourceTree = "<group>"; };
 		C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Encodable.swift"; sourceTree = "<group>"; };
 		C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchiTuneCell.swift; sourceTree = "<group>"; };
+		C083733D2AFB4A5400B8A813 /* HomeAppInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppInfoCell.swift; sourceTree = "<group>"; };
+		C083733F2AFB4D8F00B8A813 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		C08373412AFB4FAF00B8A813 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
+		C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppInfoItemView.swift; sourceTree = "<group>"; };
+		C08373472AFB551500B8A813 /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
 		C0CC98322AFA40D100325430 /* SearchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailVC.swift; sourceTree = "<group>"; };
 		C0CC98342AFA40F500325430 /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		C0CC98362AFA40FD00325430 /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +102,7 @@
 				C00206B92AFA77CF0063A291 /* HomeVC.swift */,
 				C00206BB2AFA78010063A291 /* HomeView.swift */,
 				C00206BE2AFA78540063A291 /* HomeViewModel.swift */,
+				C083733F2AFB4D8F00B8A813 /* HomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 		C04E79962AF90A3300E5AD8D /* SearchiTunes */ = {
 			isa = PBXGroup;
 			children = (
+				C08373432AFB53EE00B8A813 /* View */,
 				C0EAAE9D2AFA19BA0028031F /* Extension */,
 				C04E79CA2AF913F600E5AD8D /* Cell */,
 				C04E79C12AF90C7500E5AD8D /* Model */,
@@ -151,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C04E79C32AF90C7C00E5AD8D /* Response */,
+				C08373472AFB551500B8A813 /* HomeItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,8 +181,18 @@
 			children = (
 				C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */,
 				C0EAAEA22AFA29860028031F /* ScreenshotCell.swift */,
+				C083733D2AFB4A5400B8A813 /* HomeAppInfoCell.swift */,
+				C08373412AFB4FAF00B8A813 /* TitleSupplementaryView.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		C08373432AFB53EE00B8A813 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C0CC98302AFA40BB00325430 /* SearchMain */ = {
@@ -289,14 +312,19 @@
 				C04E799C2AF90A3300E5AD8D /* SearchMainVC.swift in Sources */,
 				C00206BF2AFA78540063A291 /* HomeViewModel.swift in Sources */,
 				C04E79BB2AF90B8400E5AD8D /* SearchMainView.swift in Sources */,
+				C08373422AFB4FAF00B8A813 /* TitleSupplementaryView.swift in Sources */,
 				C04E79C72AF90CA900E5AD8D /* ResponseSearchiTunes.swift in Sources */,
+				C08373452AFB53F800B8A813 /* HomeAppInfoItemView.swift in Sources */,
+				C08373402AFB4D8F00B8A813 /* HomeController.swift in Sources */,
 				C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */,
 				C04E79BE2AF90C4D00E5AD8D /* APIManager.swift in Sources */,
 				C00206BC2AFA78010063A291 /* HomeView.swift in Sources */,
 				C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */,
+				C083733E2AFB4A5500B8A813 /* HomeAppInfoCell.swift in Sources */,
 				C0EAAEA32AFA29860028031F /* ScreenshotCell.swift in Sources */,
 				C00206B62AFA76310063A291 /* TabBarVC.swift in Sources */,
 				C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */,
+				C08373482AFB551500B8A813 /* HomeItem.swift in Sources */,
 				C00206BA2AFA77CF0063A291 /* HomeVC.swift in Sources */,
 				C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */,
 				C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */,
