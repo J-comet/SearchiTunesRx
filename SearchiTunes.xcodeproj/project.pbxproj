@@ -27,10 +27,10 @@
 		C04E79C92AF90CB700E5AD8D /* Extension+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */; };
 		C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */; };
 		C083733E2AFB4A5500B8A813 /* HomeAppInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083733D2AFB4A5400B8A813 /* HomeAppInfoCell.swift */; };
-		C08373402AFB4D8F00B8A813 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083733F2AFB4D8F00B8A813 /* HomeController.swift */; };
 		C08373422AFB4FAF00B8A813 /* TitleSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373412AFB4FAF00B8A813 /* TitleSupplementaryView.swift */; };
 		C08373452AFB53F800B8A813 /* HomeAppInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */; };
-		C08373482AFB551500B8A813 /* HomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373472AFB551500B8A813 /* HomeItem.swift */; };
+		C08373482AFB551500B8A813 /* HomeItemSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373472AFB551500B8A813 /* HomeItemSectionModel.swift */; };
+		C083734B2AFB63B100B8A813 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = C083734A2AFB63B100B8A813 /* RxDataSources */; };
 		C0CC98332AFA40D100325430 /* SearchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98322AFA40D100325430 /* SearchDetailVC.swift */; };
 		C0CC98352AFA40F500325430 /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98342AFA40F500325430 /* SearchDetailView.swift */; };
 		C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98362AFA40FD00325430 /* SearchDetailViewModel.swift */; };
@@ -58,10 +58,9 @@
 		C04E79C82AF90CB700E5AD8D /* Extension+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Encodable.swift"; sourceTree = "<group>"; };
 		C04E79CB2AF9140F00E5AD8D /* SearchiTuneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchiTuneCell.swift; sourceTree = "<group>"; };
 		C083733D2AFB4A5400B8A813 /* HomeAppInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppInfoCell.swift; sourceTree = "<group>"; };
-		C083733F2AFB4D8F00B8A813 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		C08373412AFB4FAF00B8A813 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
 		C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppInfoItemView.swift; sourceTree = "<group>"; };
-		C08373472AFB551500B8A813 /* HomeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItem.swift; sourceTree = "<group>"; };
+		C08373472AFB551500B8A813 /* HomeItemSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemSectionModel.swift; sourceTree = "<group>"; };
 		C0CC98322AFA40D100325430 /* SearchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailVC.swift; sourceTree = "<group>"; };
 		C0CC98342AFA40F500325430 /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		C0CC98362AFA40FD00325430 /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 				C04E79B22AF90AB100E5AD8D /* RxSwift in Frameworks */,
 				C04E79B52AF90AC300E5AD8D /* SnapKit in Frameworks */,
 				C04E79B02AF90AB100E5AD8D /* RxCocoa in Frameworks */,
+				C083734B2AFB63B100B8A813 /* RxDataSources in Frameworks */,
 				C04E79AD2AF90A9800E5AD8D /* Alamofire in Frameworks */,
 				C04E79B82AF90AD400E5AD8D /* Kingfisher in Frameworks */,
 			);
@@ -102,7 +102,6 @@
 				C00206B92AFA77CF0063A291 /* HomeVC.swift */,
 				C00206BB2AFA78010063A291 /* HomeView.swift */,
 				C00206BE2AFA78540063A291 /* HomeViewModel.swift */,
-				C083733F2AFB4D8F00B8A813 /* HomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -163,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C04E79C32AF90C7C00E5AD8D /* Response */,
-				C08373472AFB551500B8A813 /* HomeItem.swift */,
+				C08373472AFB551500B8A813 /* HomeItemSectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +246,7 @@
 				C04E79B42AF90AC300E5AD8D /* SnapKit */,
 				C04E79B72AF90AD400E5AD8D /* Kingfisher */,
 				C0EAAE9B2AFA19B20028031F /* Toast */,
+				C083734A2AFB63B100B8A813 /* RxDataSources */,
 			);
 			productName = SearchiTunes;
 			productReference = C04E79942AF90A3300E5AD8D /* SearchiTunes.app */;
@@ -282,6 +282,7 @@
 				C04E79B32AF90AC300E5AD8D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C04E79B62AF90AD400E5AD8D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C0EAAE9A2AFA19B20028031F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				C08373492AFB63B100B8A813 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = C04E79952AF90A3300E5AD8D /* Products */;
 			projectDirPath = "";
@@ -315,7 +316,6 @@
 				C08373422AFB4FAF00B8A813 /* TitleSupplementaryView.swift in Sources */,
 				C04E79C72AF90CA900E5AD8D /* ResponseSearchiTunes.swift in Sources */,
 				C08373452AFB53F800B8A813 /* HomeAppInfoItemView.swift in Sources */,
-				C08373402AFB4D8F00B8A813 /* HomeController.swift in Sources */,
 				C04E79CC2AF9140F00E5AD8D /* SearchiTuneCell.swift in Sources */,
 				C04E79BE2AF90C4D00E5AD8D /* APIManager.swift in Sources */,
 				C00206BC2AFA78010063A291 /* HomeView.swift in Sources */,
@@ -324,7 +324,7 @@
 				C0EAAEA32AFA29860028031F /* ScreenshotCell.swift in Sources */,
 				C00206B62AFA76310063A291 /* TabBarVC.swift in Sources */,
 				C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */,
-				C08373482AFB551500B8A813 /* HomeItem.swift in Sources */,
+				C08373482AFB551500B8A813 /* HomeItemSectionModel.swift in Sources */,
 				C00206BA2AFA77CF0063A291 /* HomeVC.swift in Sources */,
 				C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */,
 				C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */,
@@ -584,6 +584,14 @@
 				minimumVersion = 7.10.0;
 			};
 		};
+		C08373492AFB63B100B8A813 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 		C0EAAE9A2AFA19B20028031F /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift";
@@ -619,6 +627,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C04E79B62AF90AD400E5AD8D /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C083734A2AFB63B100B8A813 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C08373492AFB63B100B8A813 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		C0EAAE9B2AFA19B20028031F /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;

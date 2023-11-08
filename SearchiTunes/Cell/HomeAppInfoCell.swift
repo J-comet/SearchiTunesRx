@@ -11,6 +11,8 @@ import SnapKit
 
 final class HomeAppInfoCell: UICollectionViewCell {
     
+    static let identifier = "HomeAppInfoCell"
+    
     let stackView = {
         let view = UIStackView()
         view.axis = .vertical

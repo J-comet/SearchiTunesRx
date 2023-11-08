@@ -10,8 +10,14 @@ import UIKit
 import SnapKit
 
 class TitleSupplementaryView: UICollectionReusableView {
-    let label = UILabel()
-    static let reuseIdentifier = "title-supplementary-reuse-identifier"
+    
+    static let identifier = "title-supplementary-reuse-identifier"
+    
+    let label = {
+        let view = UILabel()
+        view.font = .boldSystemFont(ofSize: 16)
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
