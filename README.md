@@ -20,7 +20,7 @@
 
 ### 기술
 | Category | Stack |
-|:----:|:-----:|
+|:----|:-----|
 | Architecture | `MVVM` |
 |  UI  | `SnapKit` |
 | Reactive | `RxSwift` `RxDataSource` |
