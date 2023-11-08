@@ -12,6 +12,8 @@ import Kingfisher
 
 final class HomeAppInfoItemView: UIView {
     
+    let appInfoTapGesture = UITapGestureRecognizer()
+    
     let thumbImageView = {
         let view = UIImageView()
         view.clipsToBounds = true
@@ -64,6 +66,7 @@ final class HomeAppInfoItemView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         isUserInteractionEnabled = true
+        addGestureRecognizer(appInfoTapGesture)
         config()
         setLayout()
     }
@@ -74,9 +77,9 @@ final class HomeAppInfoItemView: UIView {
     
     func fetchData(item: HomeItem) {
         numLabel.text = item.num
-        nameLabel.text = item.name
-        descriptionLabel.text = item.description
-        if let url = URL(string: item.thumbnail) {
+        nameLabel.text = item.appInfo.trackName
+        descriptionLabel.text = item.appInfo.description
+        if let url = URL(string: item.appInfo.artworkUrl512) {
             thumbImageView.kf.setImage(with: url)
         }
     }

@@ -26,7 +26,5 @@ extension HomeItemSectionModel: SectionModelType {
 
 struct HomeItem {
     let num: String
-    let thumbnail: String
-    let name: String
-    let description: String
+    let appInfo: AppInfo
 }

@@ -17,13 +17,47 @@ final class HomeVC: UIViewController {
     private let viewModel = HomeViewModel()
     
     lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HomeItemSectionModel>(
-            configureCell: { (dataSource, collectionView, indexPath, item) in
+            configureCell: { (dataSource, collectionView, indexPath, items) in
             
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: HomeAppInfoCell.identifier,
                 for: indexPath
             ) as? HomeAppInfoCell else { return UICollectionViewCell() }
-                cell.fetchData(items: item)
+                
+                cell.fetchData(items: items)
+                cell.appInfoView01.appInfoTapGesture
+                    .rx
+                    .event
+                    .bind(with: self, onNext: { owner, gesture in
+                        let vc = SearchDetailVC()
+                        vc.hidesBottomBarWhenPushed = true
+                        vc.detailAppInfo = items[0].appInfo
+                        owner.navigationController?.pushViewController(vc, animated: true)
+                    })
+                    .disposed(by: cell.disposeBag)
+                
+                cell.appInfoView02.appInfoTapGesture
+                    .rx
+                    .event
+                    .bind(with: self, onNext: { owner, gesture in
+                        let vc = SearchDetailVC()
+                        vc.hidesBottomBarWhenPushed = true
+                        vc.detailAppInfo = items[1].appInfo
+                        owner.navigationController?.pushViewController(vc, animated: true)
+                    })
+                    .disposed(by: cell.disposeBag)
+                
+                cell.appInfoView03.appInfoTapGesture
+                    .rx
+                    .event
+                    .bind(with: self, onNext: { owner, gesture in
+                        let vc = SearchDetailVC()
+                        vc.hidesBottomBarWhenPushed = true
+                        vc.detailAppInfo = items[2].appInfo
+                        owner.navigationController?.pushViewController(vc, animated: true)
+                    })
+                    .disposed(by: cell.disposeBag)
+                
             return cell
                 
         }, configureSupplementaryView: { [weak self] dataSource, collectionView, kind, indexPath in
@@ -64,9 +98,7 @@ final class HomeVC: UIViewController {
                     homeItemDatas.append(
                         HomeItem(
                             num: "\(idx + 1)",
-                            thumbnail: appInfo.artworkUrl512,
-                            name: appInfo.trackName,
-                            description: appInfo.description
+                            appInfo: appInfo
                         )
                     )
                 }
@@ -83,6 +115,6 @@ final class HomeVC: UIViewController {
     
     private func configVC() {
         navigationItem.title = "앱"
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }

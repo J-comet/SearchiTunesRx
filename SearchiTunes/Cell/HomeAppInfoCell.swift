@@ -8,6 +8,8 @@
 import UIKit
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeAppInfoCell: UICollectionViewCell {
     
@@ -24,14 +26,25 @@ final class HomeAppInfoCell: UICollectionViewCell {
     let appInfoView02 = HomeAppInfoItemView()
     let appInfoView03 = HomeAppInfoItemView()
     
+    var disposeBag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
         setLayout()
+        
+//        appInfoView01.addGestureRecognizer(appInfoTapGesture)
+//        appInfoView02.addGestureRecognizer(appInfoTapGesture)
+//        appInfoView03.addGestureRecognizer(appInfoTapGesture)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
     }
     
     func fetchData(items: [HomeItem]) {
