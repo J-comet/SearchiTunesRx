@@ -36,7 +36,7 @@ final class SearchMainVC: UIViewController {
             .bind(to: mainView.tableView.rx.items(cellIdentifier: SearchiTuneCell.identifier, cellType: SearchiTuneCell.self)) { (row, element, cell) in
                 cell.configCell(row: element)
                 
-                cell.topContainerViewTapGesture
+                cell.containerViewTapGesture
                     .rx
                     .event
                     .bind(with: self, onNext: { owner, gesture in
@@ -65,6 +65,16 @@ final class SearchMainVC: UIViewController {
                     .disposed(by: owner.viewModel.disposeBag)
             }
             .disposed(by: viewModel.disposeBag)
+        
+        // didSelectItemAt - 컬렉션뷰영역도 터치동작시키기 위해 tabGesture 로 변경
+//        Observable.zip(mainView.tableView.rx.itemSelected, mainView.tableView.rx.modelSelected(AppInfo.self))
+//            .subscribe(with: self) { owner, selectedItem in
+//                let vc = SearchDetailVC()
+//                vc.hidesBottomBarWhenPushed = true
+//                vc.detailAppInfo = selectedItem.1
+//                owner.navigationController?.pushViewController(vc, animated: true)
+//            }
+//            .disposed(by: viewModel.disposeBag)
         
         // 스크롤시 소프트키보드 hide
         mainView.tableView.rx

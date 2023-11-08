@@ -16,11 +16,11 @@ final class SearchiTuneCell: UITableViewCell {
     
     static let identifier = "SearchiTuneCell"
     
-    let topContainerViewTapGesture = UITapGestureRecognizer()
+    let containerViewTapGesture = UITapGestureRecognizer()
     lazy var topContainerView = {
         let view = UIView()
-        view.isUserInteractionEnabled = true
-        view.addGestureRecognizer(topContainerViewTapGesture)
+//        view.isUserInteractionEnabled = true
+//        view.addGestureRecognizer(topContainerViewTapGesture)
         return view
     }()
     
@@ -83,6 +83,9 @@ final class SearchiTuneCell: UITableViewCell {
         configure()
         setLayout()
         bindScreenShotsCollectionView()
+        
+        isUserInteractionEnabled = true
+        addGestureRecognizer(containerViewTapGesture)
     }
     
     required init?(coder: NSCoder) {
