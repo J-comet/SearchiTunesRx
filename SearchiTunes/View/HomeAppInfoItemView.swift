@@ -63,6 +63,7 @@ final class HomeAppInfoItemView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        isUserInteractionEnabled = true
         config()
         setLayout()
     }

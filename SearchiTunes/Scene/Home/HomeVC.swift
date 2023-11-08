@@ -16,8 +16,6 @@ final class HomeVC: UIViewController {
     private let mainView = HomeView()
     private let viewModel = HomeViewModel()
     
-    let homeItems: BehaviorRelay<[HomeItemSectionModel]> = BehaviorRelay(value: [])
-    
     lazy var dataSource = RxCollectionViewSectionedReloadDataSource<HomeItemSectionModel>(
             configureCell: { (dataSource, collectionView, indexPath, item) in
             
@@ -41,14 +39,6 @@ final class HomeVC: UIViewController {
             return header
         })
     
-//    let test = [
-//        HomeItem(num: "1", thumbnail: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/c9/3e/69/c93e69b0-5fe8-fcd7-66c5-4815fcc463e6/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/60x60bb.jpg", name: "sdsds", description: "sdsdsd"),
-//        HomeItem(num: "2", thumbnail: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/c9/3e/69/c93e69b0-5fe8-fcd7-66c5-4815fcc463e6/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/60x60bb.jpg", name: "sdsds", description: "sdsdsd"),
-//        HomeItem(num: "3", thumbnail: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/c9/3e/69/c93e69b0-5fe8-fcd7-66c5-4815fcc463e6/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/60x60bb.jpg", name: "sdsds", description: "sdsdsd")
-//    ]
-    
-    let disposeBag = DisposeBag()
-    
     override func loadView() {
         self.view = mainView
     }
@@ -60,9 +50,9 @@ final class HomeVC: UIViewController {
     }
     
     func bind() {
-        homeItems
+        viewModel.homeItems
             .bind(to: mainView.collectionView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
+            .disposed(by: viewModel.disposeBag)
         
         var homeData: [HomeItemSectionModel] = []
         
@@ -85,9 +75,9 @@ final class HomeVC: UIViewController {
                 let second = Array(homeItemDatas[3...5])
                 let third = Array(homeItemDatas[6...8])
                 homeData.append(HomeItemSectionModel(type: section, items: [first,second,third]))
-                owner.homeItems.accept(homeData)
+                owner.viewModel.homeItems.accept(homeData)
             }
-            .disposed(by: disposeBag)
+            .disposed(by: viewModel.disposeBag)
         }
     }
     

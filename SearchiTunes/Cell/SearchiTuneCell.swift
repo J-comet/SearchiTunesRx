@@ -109,7 +109,7 @@ final class SearchiTuneCell: UITableViewCell {
         averageUserRatingLabel.text = row.ratingValue
         genreLabel.text = row.genres.first
         
-        print("데이터 전달 \(row.screenshotUrls.count)")
+//        print("데이터 전달 \(row.screenshotUrls.count)")
         screenshotImages.accept(row.screenshotUrls)
         
         if let url = URL(string: row.artworkUrl512) {

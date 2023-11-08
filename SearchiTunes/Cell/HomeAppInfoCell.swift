@@ -35,7 +35,7 @@ final class HomeAppInfoCell: UICollectionViewCell {
     }
     
     func fetchData(items: [HomeItem]) {
-        print(items)
+//        print(items)
         appInfoView01.fetchData(item: items[0])
         appInfoView02.fetchData(item: items[1])
         appInfoView03.fetchData(item: items[2])
