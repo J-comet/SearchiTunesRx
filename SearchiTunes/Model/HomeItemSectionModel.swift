@@ -10,7 +10,7 @@ import Foundation
 import RxDataSources
 
 struct HomeItemSectionModel {
-    var header: String
+    var type: HomeController.Section
     var items: [Item]
 }
 

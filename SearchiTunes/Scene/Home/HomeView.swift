@@ -26,52 +26,11 @@ final class HomeView: UIView {
         backgroundColor = .white
         configure()
         setLayout()
-        
-//        configureDataSource()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    func configureDataSource() {
-//        
-//        let cellRegistration = UICollectionView.CellRegistration<HomeAppInfoCell, Int> { (cell, indexPath, identifier) in
-//            cell.fetchData(items: test)
-//        }
-//        
-//        dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) {
-//            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Int) -> UICollectionViewCell? in
-//            // Return the cell.
-//            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-//        }
-//        
-//        let supplementaryRegistration = UICollectionView.SupplementaryRegistration
-//        <TitleSupplementaryView>(elementKind: "headerElementKind") {
-//            (supplementaryView, string, indexPath) in
-//            supplementaryView.label.text = "타이틀 입니다"
-//        }
-//        
-//        dataSource.supplementaryViewProvider = { (view, kind, index) in
-//            return self.collectionView.dequeueConfiguredReusableSupplementary(
-//                using: supplementaryRegistration, for: index)
-//        }
-//
-//        // initial data
-//        var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
-//        var identifierOffset = 0
-//        var itemsPerSection = 18
-//        
-//        let sections = [1,2,3,4]
-//        
-//        sections.forEach {
-//            snapshot.appendSections([$0])
-//            let maxIdentifier = identifierOffset + itemsPerSection
-//            snapshot.appendItems(Array(identifierOffset..<maxIdentifier))
-//            identifierOffset += itemsPerSection
-//        }
-//        dataSource.apply(snapshot, animatingDifferences: false)
-//    }
     
     private func configure() {
         addSubview(collectionView)
@@ -106,8 +65,9 @@ extension HomeView {
                 layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9),
                                                    heightDimension: .fractionalHeight(0.30)),
                 subitems: [item])
+            
             let section = NSCollectionLayoutSection(group: containerGroup)
-            section.orthogonalScrollingBehavior = UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPaging
+            section.orthogonalScrollingBehavior = UICollectionLayoutSectionOrthogonalScrollingBehavior.groupPagingCentered
             
             // header 설정
             let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
@@ -117,6 +77,7 @@ extension HomeView {
                 alignment: .top)
             section.boundarySupplementaryItems = [sectionHeader]
             return section
+            
         }, configuration: config)
         return layout
     }

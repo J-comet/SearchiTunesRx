@@ -34,6 +34,7 @@
 		C0CC98332AFA40D100325430 /* SearchDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98322AFA40D100325430 /* SearchDetailVC.swift */; };
 		C0CC98352AFA40F500325430 /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98342AFA40F500325430 /* SearchDetailView.swift */; };
 		C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98362AFA40FD00325430 /* SearchDetailViewModel.swift */; };
+		C0D989952AFB71D600E736A1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D989942AFB71D600E736A1 /* HomeController.swift */; };
 		C0EAAE9C2AFA19B20028031F /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C0EAAE9B2AFA19B20028031F /* Toast */; };
 		C0EAAE9F2AFA19CF0028031F /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */; };
 		C0EAAEA12AFA1CCC0028031F /* SearchMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */; };
@@ -64,6 +65,7 @@
 		C0CC98322AFA40D100325430 /* SearchDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailVC.swift; sourceTree = "<group>"; };
 		C0CC98342AFA40F500325430 /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		C0CC98362AFA40FD00325430 /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
+		C0D989942AFB71D600E736A1 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		C0EAAE9E2AFA19CF0028031F /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewModel.swift; sourceTree = "<group>"; };
 		C0EAAEA22AFA29860028031F /* ScreenshotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCell.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				C00206B92AFA77CF0063A291 /* HomeVC.swift */,
 				C00206BB2AFA78010063A291 /* HomeView.swift */,
 				C00206BE2AFA78540063A291 /* HomeViewModel.swift */,
+				C0D989942AFB71D600E736A1 /* HomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -125,17 +128,17 @@
 		C04E79962AF90A3300E5AD8D /* SearchiTunes */ = {
 			isa = PBXGroup;
 			children = (
-				C08373432AFB53EE00B8A813 /* View */,
-				C0EAAE9D2AFA19BA0028031F /* Extension */,
-				C04E79CA2AF913F600E5AD8D /* Cell */,
-				C04E79C12AF90C7500E5AD8D /* Model */,
-				C04E79BC2AF90C3D00E5AD8D /* Network */,
-				C04E79B92AF90B7800E5AD8D /* Scene */,
+				C04E79A52AF90A3400E5AD8D /* Info.plist */,
 				C04E79972AF90A3300E5AD8D /* AppDelegate.swift */,
 				C04E79992AF90A3300E5AD8D /* SceneDelegate.swift */,
 				C04E79A02AF90A3400E5AD8D /* Assets.xcassets */,
+				C04E79CA2AF913F600E5AD8D /* Cell */,
+				C0EAAE9D2AFA19BA0028031F /* Extension */,
 				C04E79A22AF90A3400E5AD8D /* LaunchScreen.storyboard */,
-				C04E79A52AF90A3400E5AD8D /* Info.plist */,
+				C04E79C12AF90C7500E5AD8D /* Model */,
+				C04E79BC2AF90C3D00E5AD8D /* Network */,
+				C04E79B92AF90B7800E5AD8D /* Scene */,
+				C08373432AFB53EE00B8A813 /* View */,
 			);
 			path = SearchiTunes;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				C0CC98372AFA40FD00325430 /* SearchDetailViewModel.swift in Sources */,
 				C0CC98332AFA40D100325430 /* SearchDetailVC.swift in Sources */,
 				C04E799A2AF90A3300E5AD8D /* SceneDelegate.swift in Sources */,
+				C0D989952AFB71D600E736A1 /* HomeController.swift in Sources */,
 				C0CC98352AFA40F500325430 /* SearchDetailView.swift in Sources */,
 				C04E79C92AF90CB700E5AD8D /* Extension+Encodable.swift in Sources */,
 			);

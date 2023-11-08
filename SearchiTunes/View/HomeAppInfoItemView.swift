@@ -37,6 +37,7 @@ final class HomeAppInfoItemView: UIView {
         let view = UILabel()
         view.font = .monospacedSystemFont(ofSize: 14, weight: .bold)
         view.textColor = .black
+        view.textAlignment = .center
         return view
     }()
     
@@ -106,6 +107,7 @@ extension HomeAppInfoItemView {
         numLabel.snp.makeConstraints { make in
             make.top.equalTo(shadowView).offset(4)
             make.leading.equalTo(shadowView.snp.trailing).offset(6)
+            make.width.equalTo(18)
         }
         
         numLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)

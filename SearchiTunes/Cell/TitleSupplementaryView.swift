@@ -15,7 +15,6 @@ class TitleSupplementaryView: UICollectionReusableView {
     
     let label = {
         let view = UILabel()
-        view.font = .boldSystemFont(ofSize: 16)
         return view
     }()
 
@@ -36,6 +35,6 @@ extension TitleSupplementaryView {
             make.leading.equalTo(10)
         }
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.font = .boldSystemFont(ofSize: 20)
     }
 }

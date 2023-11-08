@@ -54,7 +54,7 @@ extension HomeAppInfoCell {
     
     func setLayout() {
         stackView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(10)
+            make.horizontalEdges.equalToSuperview()
             make.verticalEdges.equalToSuperview()
         }
     }
