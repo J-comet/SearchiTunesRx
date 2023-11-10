@@ -14,7 +14,7 @@
 <br>
 
 ### 미리보기
-![1109005834127760](https://github.com/J-comet/traveltune/assets/67407666/3b0a5956-e803-43d0-b74b-a04cbb32909a)
+![1109201426469416](https://github.com/J-comet/traveltune/assets/67407666/12125e81-ee16-4b16-af62-e12f872f8c07)
 
 <br>
 
