@@ -32,7 +32,14 @@ final class SearchMainVC: UIViewController {
 
     private func bind() {
         
-        viewModel.items
+        let input = SearchMainViewModel.Input(
+            searchButtonTap: mainView.searchBar.rx.searchButtonClicked,
+            searchBarText: mainView.searchBar.rx.text.orEmpty
+        )
+
+        let output = viewModel.transform(input: input)
+        
+        output.items
             .bind(to: mainView.tableView.rx.items(cellIdentifier: SearchiTuneCell.identifier, cellType: SearchiTuneCell.self)) { (row, element, cell) in
                 cell.configCell(row: element)
                 
@@ -46,22 +53,6 @@ final class SearchMainVC: UIViewController {
                         owner.navigationController?.pushViewController(vc, animated: true)
                     })
                     .disposed(by: cell.disposeBag)
-            }
-            .disposed(by: viewModel.disposeBag)
-        
-        mainView.searchBar
-            .rx
-            .searchButtonClicked
-            .throttle(.seconds(1), scheduler: MainScheduler.instance)
-            .withLatestFrom(mainView.searchBar.rx.text.orEmpty)
-            .distinctUntilChanged() // 연달아 중복되는 값 무시
-            .bind(with: self) { owner, text in
-                APIManager.fetchData(term: text, limit: "20")
-                    .asDriver(onErrorJustReturn: SearchAppModel(resultCount: 0, results: []))
-                    .drive(with: self) { owner, value in
-                        owner.viewModel.items.accept(value.results)
-                    }
-                    .disposed(by: owner.viewModel.disposeBag)
             }
             .disposed(by: viewModel.disposeBag)
         
