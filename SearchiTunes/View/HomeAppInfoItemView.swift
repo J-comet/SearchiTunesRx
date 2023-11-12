@@ -17,20 +17,20 @@ final class HomeAppInfoItemView: UIView {
     let thumbImageView = {
         let view = UIImageView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 4
+        view.layer.cornerRadius = 16
         view.contentMode = .scaleAspectFill
         return view
     }()
     
     private let shadowView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 4
+        view.layer.cornerRadius = 16
         view.layer.borderWidth = 0.5
         view.layer.borderColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 1 // 그림자 불투명도
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOffset = .zero // 그림자 방향. .zero
-        view.layer.shadowRadius = 8 // 그림자 퍼짐의 정도
+        view.layer.shadowRadius = 4 // 그림자 퍼짐의 정도
         view.layer.masksToBounds = false
         return view
     }()
@@ -105,7 +105,7 @@ extension HomeAppInfoItemView {
         }
         
         shadowView.snp.makeConstraints { make in
-            make.edges.equalTo(thumbImageView).inset(1)
+            make.edges.equalTo(thumbImageView).inset(0.5)
         }
         
         numLabel.snp.makeConstraints { make in

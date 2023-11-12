@@ -38,7 +38,7 @@ final class SearchDetailView: UIView {
     private let iconImageView = {
         let view = UIImageView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 16
         view.contentMode = .scaleAspectFill
         return view
     }()
@@ -81,7 +81,7 @@ final class SearchDetailView: UIView {
     
     private let shadowView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 16
         view.layer.borderWidth = 0.5
         view.layer.borderColor = UIColor.black.cgColor
         view.layer.shadowOpacity = 1 // 그림자 불투명도
