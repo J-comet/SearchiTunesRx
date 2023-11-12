@@ -32,7 +32,7 @@
 		C08373452AFB53F800B8A813 /* HomeAppInfoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */; };
 		C08373482AFB551500B8A813 /* HomeItemSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08373472AFB551500B8A813 /* HomeItemSectionModel.swift */; };
 		C083734B2AFB63B100B8A813 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = C083734A2AFB63B100B8A813 /* RxDataSources */; };
-		C0CC98332AFA40D100325430 /* DetailAppInfoVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98322AFA40D100325430 /* DetailAppInfoVC2.swift */; };
+		C0CC98332AFA40D100325430 /* DetailAppInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98322AFA40D100325430 /* DetailAppInfoVC.swift */; };
 		C0CC98352AFA40F500325430 /* DetailAppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98342AFA40F500325430 /* DetailAppInfoView.swift */; };
 		C0CC98372AFA40FD00325430 /* DetailAppInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC98362AFA40FD00325430 /* DetailAppInfoViewModel.swift */; };
 		C0D989952AFB71D600E736A1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D989942AFB71D600E736A1 /* HomeController.swift */; };
@@ -64,7 +64,7 @@
 		C08373412AFB4FAF00B8A813 /* TitleSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSupplementaryView.swift; sourceTree = "<group>"; };
 		C08373442AFB53F800B8A813 /* HomeAppInfoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAppInfoItemView.swift; sourceTree = "<group>"; };
 		C08373472AFB551500B8A813 /* HomeItemSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemSectionModel.swift; sourceTree = "<group>"; };
-		C0CC98322AFA40D100325430 /* DetailAppInfoVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppInfoVC2.swift; sourceTree = "<group>"; };
+		C0CC98322AFA40D100325430 /* DetailAppInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppInfoVC.swift; sourceTree = "<group>"; };
 		C0CC98342AFA40F500325430 /* DetailAppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppInfoView.swift; sourceTree = "<group>"; };
 		C0CC98362AFA40FD00325430 /* DetailAppInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAppInfoViewModel.swift; sourceTree = "<group>"; };
 		C0D989942AFB71D600E736A1 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -94,7 +94,9 @@
 		C00206B72AFA771A0063A291 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				C0CC98302AFA40BB00325430 /* SearchMain */,
+				C04E799B2AF90A3300E5AD8D /* SearchMainVC.swift */,
+				C04E79BA2AF90B8400E5AD8D /* SearchMainView.swift */,
+				C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -208,20 +210,10 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C0CC98302AFA40BB00325430 /* SearchMain */ = {
-			isa = PBXGroup;
-			children = (
-				C04E799B2AF90A3300E5AD8D /* SearchMainVC.swift */,
-				C04E79BA2AF90B8400E5AD8D /* SearchMainView.swift */,
-				C0EAAEA02AFA1CCC0028031F /* SearchMainViewModel.swift */,
-			);
-			path = SearchMain;
-			sourceTree = "<group>";
-		};
 		C0CC98312AFA40C500325430 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				C0CC98322AFA40D100325430 /* DetailAppInfoVC2.swift */,
+				C0CC98322AFA40D100325430 /* DetailAppInfoVC.swift */,
 				C0CC98342AFA40F500325430 /* DetailAppInfoView.swift */,
 				C0CC98362AFA40FD00325430 /* DetailAppInfoViewModel.swift */,
 			);
@@ -342,7 +334,7 @@
 				C00206BA2AFA77CF0063A291 /* HomeVC.swift in Sources */,
 				C04E79982AF90A3300E5AD8D /* AppDelegate.swift in Sources */,
 				C0CC98372AFA40FD00325430 /* DetailAppInfoViewModel.swift in Sources */,
-				C0CC98332AFA40D100325430 /* DetailAppInfoVC2.swift in Sources */,
+				C0CC98332AFA40D100325430 /* DetailAppInfoVC.swift in Sources */,
 				C04E799A2AF90A3300E5AD8D /* SceneDelegate.swift in Sources */,
 				C06131792B0096E7005241DA /* ViewModelType.swift in Sources */,
 				C0D989952AFB71D600E736A1 /* HomeController.swift in Sources */,

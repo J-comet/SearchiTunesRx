@@ -84,33 +84,13 @@ final class HomeVC: UIViewController {
     }
     
     func bind() {
-        viewModel.homeItems
+        
+        let input = HomeViewModel.Input()
+        let output = viewModel.transform(input: input)
+        
+        output.items
             .bind(to: mainView.collectionView.rx.items(dataSource: dataSource))
             .disposed(by: viewModel.disposeBag)
-        
-        var homeData: [HomeItemSectionModel] = []
-        
-        for section in HomeController.Section.allCases {
-            var homeItemDatas: [HomeItem] = []
-            let request = APIManager.fetchData(term: section.term, limit: "9")
-            request.bind(with: self) { owner, value in
-                value.results.enumerated().forEach { idx, appInfo in
-                    homeItemDatas.append(
-                        HomeItem(
-                            num: "\(idx + 1)",
-                            appInfo: appInfo
-                        )
-                    )
-                }
-                
-                let first = Array(homeItemDatas[0...2])
-                let second = Array(homeItemDatas[3...5])
-                let third = Array(homeItemDatas[6...8])
-                homeData.append(HomeItemSectionModel(type: section, items: [first,second,third]))
-                owner.viewModel.homeItems.accept(homeData)
-            }
-            .disposed(by: viewModel.disposeBag)
-        }
     }
     
     private func configVC() {
