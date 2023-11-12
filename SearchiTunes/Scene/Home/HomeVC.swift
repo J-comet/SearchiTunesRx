@@ -29,7 +29,7 @@ final class HomeVC: UIViewController {
                     .rx
                     .event
                     .bind(with: self, onNext: { owner, gesture in
-                        let vc = SearchDetailVC()
+                        let vc = DetailAppInfoVC()
                         vc.hidesBottomBarWhenPushed = true
                         vc.detailAppInfo = items[0].appInfo
                         owner.navigationController?.pushViewController(vc, animated: true)
@@ -40,7 +40,7 @@ final class HomeVC: UIViewController {
                     .rx
                     .event
                     .bind(with: self, onNext: { owner, gesture in
-                        let vc = SearchDetailVC()
+                        let vc = DetailAppInfoVC()
                         vc.hidesBottomBarWhenPushed = true
                         vc.detailAppInfo = items[1].appInfo
                         owner.navigationController?.pushViewController(vc, animated: true)
@@ -51,7 +51,7 @@ final class HomeVC: UIViewController {
                     .rx
                     .event
                     .bind(with: self, onNext: { owner, gesture in
-                        let vc = SearchDetailVC()
+                        let vc = DetailAppInfoVC()
                         vc.hidesBottomBarWhenPushed = true
                         vc.detailAppInfo = items[2].appInfo
                         owner.navigationController?.pushViewController(vc, animated: true)

@@ -47,7 +47,7 @@ final class SearchMainVC: UIViewController {
                     .rx
                     .event
                     .bind(with: self, onNext: { owner, gesture in
-                        let vc = SearchDetailVC()
+                        let vc = DetailAppInfoVC()
                         vc.hidesBottomBarWhenPushed = true
                         vc.detailAppInfo = element
                         owner.navigationController?.pushViewController(vc, animated: true)

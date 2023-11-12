@@ -1,5 +1,5 @@
 //
-//  SearchDetailView.swift
+//  DetailAppInfoView.swift
 //  SearchiTunes
 //
 //  Created by 장혜성 on 2023/11/07.
@@ -12,7 +12,7 @@ import Kingfisher
 import RxSwift
 import RxCocoa
 
-final class SearchDetailView: UIView {
+final class DetailAppInfoView: UIView {
     
     let count = 1.2
     let collectionViewSpacing: CGFloat = 8
@@ -269,7 +269,7 @@ final class SearchDetailView: UIView {
     }
 }
 
-extension SearchDetailView {
+extension DetailAppInfoView {
     
     func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
